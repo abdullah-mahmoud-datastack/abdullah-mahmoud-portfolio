@@ -1,0 +1,588 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Courses | Abdullah Mah.</title>
+    <meta name="description"
+        content="Professional courses completed by Abdullah Mahmoud Abdullah in Data Engineering, AI, and related fields.">
+    <link rel="icon" href="https://res.cloudinary.com/dszovn47p/image/upload/q_auto/f_auto/v1778228008/logo_cz9kta.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Adjust wrapper for 16:9 course thumbnails to fill entire width */
+        .cert-image-wrapper {
+            padding-top: 56.25%;
+        }
+
+        .cert-image {
+            object-fit: cover;
+            width: 100%;
+        }
+
+        .filter-container {
+            margin-top: 2rem;
+        }
+
+        .search-bar {
+            width: 100%;
+            max-width: 500px;
+            padding: 12px 20px;
+            border-radius: 30px;
+            border: 1px solid var(--border-color);
+            background: var(--card-bg);
+            color: var(--text-primary);
+            font-size: 1rem;
+            outline: none;
+            transition: 0.3s;
+        }
+
+        .search-bar:focus {
+            border-color: var(--primary-color);
+            box-shadow: 0 0 10px rgba(99, 102, 241, 0.2);
+        }
+
+        .tag-filters {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            justify-content: center;
+            margin-top: 15px;
+        }
+
+        .filter-btn {
+            padding: 8px 16px;
+            border-radius: 20px;
+            border: 1px solid var(--primary-color);
+            background: transparent;
+            color: var(--primary-color);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 0.9rem;
+        }
+
+        .filter-btn:hover,
+        .filter-btn.active {
+            background: var(--primary-color);
+            color: #fff;
+        }
+
+        .key-skills {
+            text-align: left;
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            margin-bottom: 15px;
+        }
+
+        .key-skills strong {
+            color: var(--text-primary);
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        .key-skills ul {
+            list-style-type: none;
+            padding-left: 0;
+            margin-top: 5px;
+        }
+
+        .key-skills li {
+            position: relative;
+            padding-left: 15px;
+            margin-bottom: 4px;
+        }
+
+        .key-skills li::before {
+            content: "▹";
+            position: absolute;
+            left: 0;
+            color: var(--primary-color);
+        }
+
+        .item-hidden {
+            display: none !important;
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="../index.html#hero" class="logo">AM.<span>Data</span></a>
+            <ul class="nav-links">
+                <li><a href="../index.html#about">About</a></li>
+                <li><a href="../index.html#skills">Skills</a></li>
+                <li><a href="../index.html#experience">Experience</a></li>
+                <li><a href="../index.html#services">Services</a></li>
+                <li><a href="../index.html#contact">Contact</a></li>
+                <li><a href="projects.html">Projects</a></li>
+                <li><a href="certificates.html">Certificates</a></li>
+                <li><a href="courses.html">Courses</a></li>
+                <li><a href="books.html">Books</a></li>
+            </ul>
+            <button id="theme-toggle" class="theme-toggle" aria-label="Toggle dark/light mode">
+                <i class="fas fa-sun"></i>
+            </button>
+            <div class="hamburger">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+    </nav>
+
+    <main class="page-padding">
+        <!-- Header & Filters -->
+        <section class="cert-header section-padding">
+            <div class="container text-center">
+                <h1 class="section-title fade-in">Continuous Learning</h1>
+                <p class="summary fade-in mx-auto" style="margin: 0 auto; max-width: 600px;">
+                    A curated list of impactful courses I've completed to continually sharpen my skills in Data
+                    Engineering, Analytics, and Cloud Architectures.
+                </p>
+                <div class="filter-container fade-in">
+                    <input type="text" id="searchInput" placeholder="Search courses by title or platform..."
+                        class="search-bar">
+                    <div class="tag-filters" id="tagFilters">
+                        <button class="filter-btn active" data-filter="all">All</button>
+                        <button class="filter-btn" data-filter="Data Engineering">Data Engineering</button>
+                        <button class="filter-btn" data-filter="Python">Python</button>
+                        <button class="filter-btn" data-filter="SQL">SQL</button>
+                        <button class="filter-btn" data-filter="Cloud">Cloud</button>
+                        <button class="filter-btn" data-filter="Machine Learning">Machine Learning</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Courses Grid -->
+        <section class="cert-category section-padding" style="padding-top: 0;">
+            <div class="container">
+                <div class="cert-grid" id="itemsGrid">
+                    <!-- Course 1 -->
+                    <div class="cert-card fade-in filter-item" data-tags="Python, Automation"
+                        data-title="Mastering Python - تعلم بايثون">
+                        <div class="cert-image-wrapper">
+                            <!-- Placeholder image, usually actual thumbnails would go here -->
+                            <img src="https://i.ytimg.com/vi/mvZHDpCHphk/hqdefault.jpg?sqp=-oaymwEXCNACELwBSFryq4qpAwkIARUAAIhCGAE=&rs=AOn4CLCnbMi_h1t-_fAQ2BEl0xZAhLGq1A"
+                                alt="Mastering Python - تعلم بايثون" class="cert-image" loading="lazy">
+                        </div>
+                        <div class="cert-content">
+                            <div
+                                style="display: flex; flex-wrap: wrap; gap: 5px; justify-content: start; margin-bottom: 10px;">
+                                <span class="cert-badge">Python</span>
+                                <span class="cert-badge">Automation</span>
+                            </div>
+                            <h3>Mastering Python - تعلم بايثون</h3>
+                            <div style="display: flex; gap: 10px; justify-content: start; margin-bottom: 15px;">
+                                <p class="cert-platform"><i class="fas fa-building"></i> YouTube</p>
+                            </div>
+                            <div class="key-skills">
+                                <strong>Key Skills Gained:</strong>
+                                <ul>
+                                    <li>Programming Fundamentals & Syntax</li>
+                                    <li>Object-Oriented Programming (OOP)</li>
+                                    <li>Data Processing & Automation</li>
+                                    <li>Python Modules & Error Handling</li>
+                                </ul>
+                            </div>
+                            <div class="cert-actions">
+                                <a href="https://youtube.com/playlist?list=PLDoPjvoNmBAyE_gei5d18qkfIe-Z8mocs&si=E5DiWicRvlziNNru"
+                                    class="btn btn-secondary btn-sm verify-btn"><i class="fas fa-external-link-alt"></i>
+                                    View Details</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Course 2 -->
+                    <div class="cert-card fade-in filter-item" data-tags="Data Engineering, Python, Airflow, SQL"
+                        data-title="Data Engineering for Beginners: Python, SQL & Airflow">
+                        <div class="cert-image-wrapper">
+                            <img src="https://img-c.udemycdn.com/course/480x270/6579305_fa18_4.jpg"
+                                alt="Snowflake Data Warehousing" class="cert-image" loading="lazy">
+                        </div>
+                        <div class="cert-content">
+                            <div
+                                style="display: flex; flex-wrap: wrap; gap: 5px; justify-content: start; margin-bottom: 10px;">
+                                <span class="cert-badge">Data Engineering</span>
+                                <span class="cert-badge">Python</span>
+                                <span class="cert-badge">SQL</span>
+                            </div>
+                            <h3>Data Engineering for Beginners: Python, SQL & Airflow</h3>
+                            <div style="display: flex; gap: 10px; justify-content: start; margin-bottom: 15px;">
+                                <p class="cert-platform"><i class="fas fa-building"></i> Udemy</p>
+                            </div>
+                            <div class="key-skills">
+                                <strong>Key Skills Gained:</strong>
+                                <ul>
+                                    <li>Data Architecture & Design</li>
+                                    <li>Core Engineering & Scripting</li>
+                                    <li>Orchestration & Pipeline Automation</li>
+                                </ul>
+                            </div>
+                            <div class="cert-actions">
+                                <a href="https://www.udemy.com/course/data-engineering-kiwi/"
+                                    class="btn btn-secondary btn-sm verify-btn"><i class="fas fa-external-link-alt"></i>
+                                    View Details</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Course 3 -->
+                    <div class="cert-card fade-in filter-item" data-tags="Python, Machine Learning, AI"
+                        data-title="Python Machine Learning">
+                        <div class="cert-image-wrapper">
+                            <img src="https://img-c.udemycdn.com/course/480x270/6136815_6345_2.jpg" alt="ML Engineering"
+                                class="cert-image" loading="lazy">
+                        </div>
+                        <div class="cert-content">
+                            <div
+                                style="display: flex; flex-wrap: wrap; gap: 5px; justify-content: start; margin-bottom: 10px;">
+                                <span class="cert-badge">Machine Learning</span>
+                                <span class="cert-badge">Python</span>
+                            </div>
+                            <h3>Python Machine Learning: From Beginner to Pro</h3>
+                            <div style="display: flex; gap: 10px; justify-content: start; margin-bottom: 15px;">
+                                <p class="cert-platform"><i class="fas fa-building"></i> Udemy</p>
+                            </div>
+                            <div class="key-skills">
+                                <strong>Key Skills Gained:</strong>
+                                <ul>
+                                    <li>Core Machine Learning Concepts</li>
+                                    <li>Data Science Stack & Preprocessing</li>
+                                    <li>Deep Learning & Neural Networks</li>
+                                    <li>Practical Implementation & Deployment</li>
+                                </ul>
+                            </div>
+                            <div class="cert-actions">
+                                <a href="https://www.udemy.com/course/python-machine-learning-from-beginner-to-pro/"
+                                    class="btn btn-secondary btn-sm verify-btn"><i class="fas fa-external-link-alt"></i>
+                                    View Details</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Course 4 -->
+                    <div class="cert-card fade-in filter-item" data-tags="AWS, Cloud"
+                        data-title="AWS Cloud Technical Essentials">
+                        <div class="cert-image-wrapper">
+                            <img src="https://s3.amazonaws.com/coursera_assets/meta_images/generated/XDP/XDP~COURSE!~aws-cloud-technical-essentials/XDP~COURSE!~aws-cloud-technical-essentials.jpeg"
+                                alt="AWS Cloud Technical Essentials" class="cert-image" loading="lazy">
+                        </div>
+                        <div class="cert-content">
+                            <div
+                                style="display: flex; flex-wrap: wrap; gap: 5px; justify-content: start; margin-bottom: 10px;">
+                                <span class="cert-badge">AWS</span>
+                                <span class="cert-badge">Cloud</span>
+                            </div>
+                            <h3>AWS Cloud Technical Essentials</h3>
+                            <div style="display: flex; gap: 10px; justify-content: start; margin-bottom: 15px;">
+                                <p class="cert-platform"><i class="fas fa-building"></i> Coursera</p>
+                            </div>
+                            <div class="key-skills">
+                                <strong>Key Skills Gained:</strong>
+                                <ul>
+                                    <li>Core AWS Services</li>
+                                    <li>Security & Identity</li>
+                                    <li>Monitoring & Optimization</li>
+                                    <li>Serverless Basics</li>
+                                </ul>
+                            </div>
+                            <div class="cert-actions">
+                                <a href="https://www.coursera.org/learn/aws-cloud-technical-essentials"
+                                    class="btn btn-secondary btn-sm verify-btn"><i class="fas fa-external-link-alt"></i>
+                                    View Details</a>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Course   -->
+                    <div class="cert-card fade-in filter-item" data-tags="AWS, Cloud"
+                        data-title="Architecting Solutions on AWS">
+                        <div class="cert-image-wrapper">
+                            <img src="https://s3.amazonaws.com/coursera_assets/meta_images/generated/XDP/XDP~COURSE!~architecting-solutions-on-aws/XDP~COURSE!~architecting-solutions-on-aws.jpeg"
+                                alt="Architecting Solutions on AWS" class="cert-image" loading="lazy">
+                        </div>
+                        <div class="cert-content">
+                            <div
+                                style="display: flex; flex-wrap: wrap; gap: 5px; justify-content: start; margin-bottom: 10px;">
+                                <span class="cert-badge">AWS</span>
+                                <span class="cert-badge">Cloud</span>
+                            </div>
+                            <h3>Architecting Solutions on AWS</h3>
+                            <div style="display: flex; gap: 10px; justify-content: start; margin-bottom: 15px;">
+                                <p class="cert-platform"><i class="fas fa-building"></i> Coursera</p>
+                            </div>
+                            <div class="key-skills">
+                                <strong>Key Skills Gained:</strong>
+                                <ul>
+                                    <li>The Well-Architected Framework</li>
+                                    <li>High Availability & Scalability</li>
+                                    <li>Decoupling Applications</li>
+                                    <li>Network Design</li>
+                                </ul>
+                            </div>
+                            <div class="cert-actions">
+                                <a href="https://www.coursera.org/learn/architecting-solutions-on-aws/"
+                                    class="btn btn-secondary btn-sm verify-btn"><i class="fas fa-external-link-alt"></i>
+                                    View Details</a>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Course   -->
+                    <div class="cert-card fade-in filter-item" data-tags="AWS, Cloud, Data Lake"
+                        data-title="Building Data Lakes on AWS">
+                        <div class="cert-image-wrapper">
+                            <img src="https://s3.amazonaws.com/coursera_assets/meta_images/generated/XDP/XDP~COURSE!~introduction-to-designing-data-lakes-in-aws/XDP~COURSE!~introduction-to-designing-data-lakes-in-aws.jpeg"
+                                alt="Building Data Lakes on AWS" class="cert-image" loading="lazy">
+                        </div>
+                        <div class="cert-content">
+                            <div
+                                style="display: flex; flex-wrap: wrap; gap: 5px; justify-content: start; margin-bottom: 10px;">
+                                <span class="cert-badge">AWS</span>
+                                <span class="cert-badge">Cloud</span>
+                                <span class="cert-badge">Data Lake</span>
+                            </div>
+                            <h3>Building Data Lakes on AWS</h3>
+                            <div style="display: flex; gap: 10px; justify-content: start; margin-bottom: 15px;">
+                                <p class="cert-platform"><i class="fas fa-building"></i> Coursera</p>
+                            </div>
+                            <div class="key-skills">
+                                <strong>Key Skills Gained:</strong>
+                                <ul>
+                                    <li>Data Lake Architecture</li>
+                                    <li>Data Ingestion & Integration</li>
+                                    <li>Cataloging & Discovery</li>
+                                    <li>Serverless Analytics</li>
+                                </ul>
+                            </div>
+                            <div class="cert-actions">
+                                <a href="https://www.coursera.org/learn/introduction-to-designing-data-lakes-in-aws/"
+                                    class="btn btn-secondary btn-sm verify-btn"><i class="fas fa-external-link-alt"></i>
+                                    View Details</a>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Course   -->
+                    <div class="cert-card fade-in filter-item" data-tags="Snowflake, Cloud, Data Warehouse"
+                        data-title="Intro to Snowflake for Devs, Data Scientists, Data Engineers">
+                        <div class="cert-image-wrapper">
+                            <img src="https://s3.amazonaws.com/coursera_assets/meta_images/generated/XDP/XDP~COURSE!~snowflake-intro-app-developers-data-scientists-data-engineers/XDP~COURSE!~snowflake-intro-app-developers-data-scientists-data-engineers.jpeg"
+                                alt="Intro to Snowflake for Devs, Data Scientists, Data Engineers" class="cert-image"
+                                loading="lazy">
+                        </div>
+                        <div class="cert-content">
+                            <div
+                                style="display: flex; flex-wrap: wrap; gap: 5px; justify-content: start; margin-bottom: 10px;">
+                                <span class="cert-badge">Snowflake</span>
+                                <span class="cert-badge">Data Engineering</span>
+                                <span class="cert-badge">Data Warehouse</span>
+                            </div>
+                            <h3>Intro to Snowflake for Devs, Data Scientists, Data Engineers</h3>
+                            <div style="display: flex; gap: 10px; justify-content: start; margin-bottom: 15px;">
+                                <p class="cert-platform"><i class="fas fa-building"></i> Coursera</p>
+                            </div>
+                            <div class="key-skills">
+                                <strong>Key Skills Gained:</strong>
+                                <ul>
+                                    <li>Snowflake Architecture & Navigation</li>
+                                    <li>Time Travel & Cloning</li>
+                                    <li>Extending Capabilities</li>
+                                    <li>AI & App Integration</li>
+                                </ul>
+                            </div>
+                            <div class="cert-actions">
+                                <a href="https://www.coursera.org/learn/snowflake-intro-app-developers-data-scientists-data-engineers/"
+                                    class="btn btn-secondary btn-sm verify-btn"><i class="fas fa-external-link-alt"></i>
+                                    View Details</a>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Course   -->
+                    <div class="cert-card fade-in filter-item" data-tags="snowflake, data engineering"
+                        data-title="Modern Data Engineering with Snowflake">
+                        <div class="cert-image-wrapper">
+                            <img src="https://s3.amazonaws.com/coursera_assets/meta_images/generated/XDP/XDP~COURSE!~data-engineering-snowflake/XDP~COURSE!~data-engineering-snowflake.jpeg"
+                                alt="Modern Data Engineering with Snowflake" class="cert-image" loading="lazy">
+                        </div>
+                        <div class="cert-content">
+                            <div
+                                style="display: flex; flex-wrap: wrap; gap: 5px; justify-content: start; margin-bottom: 10px;">
+                                <span class="cert-badge">Snowflake</span>
+                                <span class="cert-badge">Data Engineering</span>
+                            </div>
+                            <h3>Introduction to Modern Data Engineering with Snowflake</h3>
+                            <div style="display: flex; gap: 10px; justify-content: start; margin-bottom: 15px;">
+                                <p class="cert-platform"><i class="fas fa-building"></i> Coursera</p>
+                            </div>
+                            <div class="key-skills">
+                                <strong>Key Skills Gained:</strong>
+                                <ul>
+                                    <li>The ITD Framework</li>
+                                    <li>Data Ingestion at Scale</li>
+                                    <li>Advanced Transformations</li>
+                                    <li>Pipeline Orchestration</li>
+                                </ul>
+                            </div>
+                            <div class="cert-actions">
+                                <a href="https://www.coursera.org/learn/data-engineering-snowflake/"
+                                    class="btn btn-secondary btn-sm verify-btn"><i class="fas fa-external-link-alt"></i>
+                                    View Details</a>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Course   -->
+                    <div class="cert-card fade-in filter-item" data-tags="Data Engineering, Snowflake"
+                        data-title="Advanced Data Engineering with Snowflake">
+                        <div class="cert-image-wrapper">
+                            <img src="https://s3.amazonaws.com/coursera_assets/meta_images/generated/XDP/XDP~COURSE!~advanced-data-engineering-with-snowflake/XDP~COURSE!~advanced-data-engineering-with-snowflake.jpeg"
+                                alt="Advanced Data Engineering with Snowflake" class="cert-image" loading="lazy">
+                        </div>
+                        <div class="cert-content">
+                            <div
+                                style="display: flex; flex-wrap: wrap; gap: 5px; justify-content: start; margin-bottom: 10px;">
+                                <span class="cert-badge">Data Engineering</span>
+                                <span class="cert-badge">Snowflake</span>
+                            </div>
+                            <h3>Advanced Data Engineering with Snowflake</h3>
+                            <div style="display: flex; gap: 10px; justify-content: start; margin-bottom: 15px;">
+                                <p class="cert-platform"><i class="fas fa-building"></i> Coursera</p>
+                            </div>
+                            <div class="key-skills">
+                                <strong>Key Skills Gained:</strong>
+                                <ul>
+                                    <li>DataOps Integration</li>
+                                    <li>CI/CD Automation</li>
+                                    <li>Pipeline Observability</li>
+                                    <li>Alerting & Tracing</li>
+                                </ul>
+                            </div>
+                            <div class="cert-actions">
+                                <a href="https://www.coursera.org/learn/advanced-data-engineering-with-snowflake/"
+                                    class="btn btn-secondary btn-sm verify-btn"><i class="fas fa-external-link-alt"></i>
+                                    View Details</a>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Course   -->
+                    <div class="cert-card fade-in filter-item" data-tags="AWS, AI, ML"
+                        data-title="AWS AI & ML Scholars">
+                        <div class="cert-image-wrapper">
+                            <img src="https://www.udacity.com/_next/image?url=https%3A%2F%2Fudacity-user-uploads.s3.us-west-2.amazonaws.com%2Fuploads%2Fuser-uploads%2Ffe6c4e75-c84e-462a-aeda-70cf0f297eed-original.png&w=828&q=75"
+                                alt="AWS AI & ML Scholars" class="cert-image" loading="lazy">
+                        </div>
+                        <div class="cert-content">
+                            <div
+                                style="display: flex; flex-wrap: wrap; gap: 5px; justify-content: start; margin-bottom: 10px;">
+                                <span class="cert-badge">AWS</span>
+                                <span class="cert-badge">AI Practitioner</span>
+                            </div>
+                            <h3>AWS AI & ML Scholars</h3>
+                            <div style="display: flex; gap: 10px; justify-content: start; margin-bottom: 15px;">
+                                <p class="cert-platform"><i class="fas fa-building"></i> Udacity</p>
+                            </div>
+                            <div class="key-skills">
+                                <strong>Key Skills Gained:</strong>
+                                <ul>
+                                    <li>AWS AI Practitioner Challenge</li>
+                                    <li>Develop AI & Agentic AI</li>
+                                    <li>###</li>
+                                </ul>
+                            </div>
+                            <div class="cert-actions">
+                                <a href="https://www.udacity.com/org/aws-ai-ml-scholars-program/learning-plan/aws-aiml-challenge"
+                                    class="btn btn-secondary btn-sm verify-btn"><i class="fas fa-external-link-alt"></i>
+                                    View Details</a>
+                            </div>
+                        </div>
+                    </div><!-- Course   -->
+                    <div class="cert-card fade-in filter-item" data-tags="Big Data, Data Engineering"
+                        data-title="Big Data Engineering In Depth">
+                        <div class="cert-image-wrapper">
+                            <img src="https://i.ytimg.com/vi/p_jl-gFinlA/hqdefault.jpg?sqp=-oaymwEXCNACELwBSFryq4qpAwkIARUAAIhCGAE=&rs=AOn4CLADHbSOHvJVtm-d8ZPPemjsYtdCxA"
+                                alt="Big Data Engineering In Depth" class="cert-image" loading="lazy">
+                        </div>
+                        <div class="cert-content">
+                            <div
+                                style="display: flex; flex-wrap: wrap; gap: 5px; justify-content: start; margin-bottom: 10px;">
+                                <span class="cert-badge">Big Data</span>
+                                <span class="cert-badge">Data Engineering</span>
+                            </div>
+                            <h3>Big Data Engineering In Depth</h3>
+                            <div style="display: flex; gap: 10px; justify-content: start; margin-bottom: 15px;">
+                                <p class="cert-platform"><i class="fas fa-building"></i> YouTube</p>
+                            </div>
+                            <div class="key-skills">
+                                <strong>Key Skills Gained:</strong>
+                                <ul>
+                                    <li>###</li>
+                                    <li>###</li>
+                                    <li>###</li>
+                                </ul>
+                            </div>
+                            <div class="cert-actions">
+                                <a href="https://youtube.com/playlist?list=PLxNoJq6k39G_m6DYjpz-V92DkaQEiXxkF&si=4YFgYEh424MTCdoe"
+                                    class="btn btn-secondary btn-sm verify-btn"><i class="fas fa-external-link-alt"></i>
+                                    View Details</a>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <a href="#" class="scroll-top" aria-label="Scroll to top"><i class="fas fa-chevron-up"></i></a>
+            <p>&copy; <span id="year"></span> Abdullah EL-Yamany. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="../js/script.js"></script>
+    <script>
+        // Search and Filter Logic
+        document.addEventListener('DOMContentLoaded', () => {
+            const searchInput = document.getElementById('searchInput');
+            const filterBtns = document.querySelectorAll('.filter-btn');
+            const items = document.querySelectorAll('.filter-item');
+
+            let currentFilter = 'all';
+            let searchQuery = '';
+
+            const filterItems = () => {
+                items.forEach(item => {
+                    const title = item.getAttribute('data-title').toLowerCase();
+                    const tags = item.getAttribute('data-tags').toLowerCase();
+
+                    const matchesSearch = title.includes(searchQuery) || tags.includes(searchQuery);
+                    const matchesFilter = currentFilter === 'all' || tags.includes(currentFilter.toLowerCase());
+
+                    if (matchesSearch && matchesFilter) {
+                        item.classList.remove('item-hidden');
+                    } else {
+                        item.classList.add('item-hidden');
+                    }
+                });
+            };
+
+            searchInput.addEventListener('input', (e) => {
+                searchQuery = e.target.value.toLowerCase();
+                filterItems();
+            });
+
+            filterBtns.forEach(btn => {
+                btn.addEventListener('click', (e) => {
+                    filterBtns.forEach(b => b.classList.remove('active'));
+                    e.target.classList.add('active');
+                    currentFilter = e.target.getAttribute('data-filter');
+                    filterItems();
+                });
+            });
+        });
+    </script>
+</body>
+
+</html>

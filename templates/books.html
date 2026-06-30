@@ -1,0 +1,966 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Books | Abdullah Mah.</title>
+    <meta name="description" content="A collection of professional books read by Abdullah Mahmoud Abdullah focusing on Clean Code, Architecture, and Data Engineering." />
+    <link rel="icon" href="https://res.cloudinary.com/dszovn47p/image/upload/q_auto/f_auto/v1778228008/logo_cz9kta.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="../css/style.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <style>
+      .filter-container {
+        margin-top: 2rem;
+      }
+      .search-bar {
+        width: 100%;
+        max-width: 500px;
+        padding: 12px 20px;
+        border-radius: 30px;
+        border: 1px solid var(--border-color);
+        background: var(--card-bg);
+        color: var(--text-primary);
+        font-size: 1rem;
+        outline: none;
+        transition: 0.3s;
+      }
+      .search-bar:focus {
+        border-color: var(--primary-color);
+        box-shadow: 0 0 10px rgba(99, 102, 241, 0.2);
+      }
+      .tag-filters {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        justify-content: center;
+        margin-top: 15px;
+      }
+      .filter-btn {
+        padding: 8px 16px;
+        border-radius: 20px;
+        border: 1px solid var(--primary-color);
+        background: transparent;
+        color: var(--primary-color);
+        cursor: pointer;
+        transition: all 0.3s ease;
+        font-size: 0.9rem;
+      }
+      .filter-btn:hover,
+      .filter-btn.active {
+        background: var(--primary-color);
+        color: #fff;
+      }
+      .key-skills {
+        text-align: left;
+        font-size: 0.9rem;
+        color: var(--text-secondary);
+        margin-bottom: 15px;
+      }
+      .key-skills strong {
+        color: var(--text-primary);
+        display: block;
+        margin-bottom: 5px;
+      }
+      .key-skills ul {
+        list-style-type: none;
+        padding-left: 0;
+        margin-top: 5px;
+      }
+      .key-skills li {
+        position: relative;
+        padding-left: 15px;
+        margin-bottom: 4px;
+      }
+      .key-skills li::before {
+        content: '▹';
+        position: absolute;
+        left: 0;
+        color: var(--primary-color);
+      }
+      .item-hidden {
+        display: none !important;
+      }
+      .cert-image-wrapper.book-cover {
+        padding-top: 133%; /* Adjust aspect ratio for portrait book covers */
+      }
+      .cert-image-wrapper.book-cover img {
+        object-fit: cover;
+        height: 100%;
+        width: 100%;
+      }
+    </style>
+  </head>
+
+  <body>
+    <nav class="navbar">
+      <div class="nav-container">
+        <a href="../index.html#hero" class="logo">AM.<span>Data</span></a>
+        <ul class="nav-links">
+          <li>
+            <a href="../index.html#about">About</a>
+          </li>
+          <li>
+            <a href="../index.html#skills">Skills</a>
+          </li>
+          <li>
+            <a href="../index.html#experience">Experience</a>
+          </li>
+          <li>
+            <a href="../index.html#services">Services</a>
+          </li>
+          <li>
+            <a href="../index.html#contact">Contact</a>
+          </li>
+          <li>
+            <a href="projects.html">Projects</a>
+          </li>
+          <li>
+            <a href="certificates.html">Certificates</a>
+          </li>
+          <li>
+            <a href="courses.html">Courses</a>
+          </li>
+          <li>
+            <a href="books.html">Books</a>
+          </li>
+        </ul>
+        <button id="theme-toggle" class="theme-toggle" aria-label="Toggle dark/light mode"><i class="fas fa-sun"></i></button>
+        <div class="hamburger">
+          <i class="fas fa-bars"></i>
+        </div>
+      </div>
+    </nav>
+
+    <main class="page-padding">
+      <!-- Header & Filters -->
+      <section class="cert-header section-padding">
+        <div class="container text-center">
+          <h1 class="section-title fade-in">My Library</h1>
+          <p class="summary fade-in mx-auto" style="margin: 0 auto; max-width: 600px;">A collection of defining books that have shaped my perspective on system design, data architecture, and writing clean, scalable code.</p>
+          <div class="filter-container fade-in">
+            <input type="text" id="searchInput" placeholder="Search books by title, author or tag..." class="search-bar" />
+                        <div class="tag-filters" id="tagFilters">
+              <button class="filter-btn active" data-filter="all">ALL</button>
+              <button class="filter-btn" data-filter="DATA ENGINEERING">DATA ENGINEERING</button>
+              <button class="filter-btn" data-filter="BIG DATA">BIG DATA</button>
+              <button class="filter-btn" data-filter="PYTHON">PYTHON</button>
+              <button class="filter-btn" data-filter="MACHINE LEARNING">MACHINE LEARNING</button>
+              <button class="filter-btn" data-filter="SOFTWARE ENGINEERING">SOFTWARE ENGINEERING</button>
+              <button class="filter-btn" data-filter="SYSTEM DESIGN">SYSTEM DESIGN</button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Books Grid -->
+      <section class="cert-category section-padding" style="padding-top: 0;">
+        <div class="container">
+                    <div class="cert-grid" id="itemsGrid">
+            <!-- Book: Python Crash Course -->
+            <div class="cert-card fade-in filter-item" data-tags="Python, Software Engineering" data-title="Python Crash Course">
+              <div class="cert-image-wrapper book-cover">
+                <span class="status-badge read">Read</span>
+                <img src="https://res.cloudinary.com/dszovn47p/image/upload/v1780911746/Python-Crash-Course_fmallq.jpg" alt="Python Crash Course" class="cert-image" loading="lazy" />
+              </div>
+              <div class="cert-content">
+                <div style="display: flex; flex-wrap: wrap; gap: 5px; justify-content: start; margin-bottom: 10px;">
+                  <span class="cert-badge">Python</span><span class="cert-badge">Software Engineering</span>
+                </div>
+                <h3>Python Crash Course</h3>
+                <div class="book-meta">
+                  <span class="book-year"><i class="fas fa-calendar-alt"></i> 2015</span>
+                  <span class="book-rating" title="Rating: 5.0/5"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></span>
+                </div>
+                <div style="display: flex; gap: 10px; justify-content: start; margin-bottom: 15px;">
+                  <p class="cert-platform">
+                    <i class="fas fa-user"></i> Eric Matthes
+                  </p>
+                </div>
+                <div class="key-skills">
+                  <strong>Key Takeaways:</strong>
+                  <ul>
+                    <li>Master the fundamentals of Python syntax and structures.</li><li>Build practical projects including data visualization and web applications.</li><li>Learn object-oriented programming concepts in Python.</li>
+                  </ul>
+                </div>
+                <div class="cert-actions">
+                  <a href="https://www.goodreads.com/book/show/22847584-python-crash-course" target="_blank" rel="noopener noreferrer" class="btn btn-secondary btn-sm verify-btn"><i class="fas fa-external-link-alt"></i> View Book</a>
+                </div>
+              </div>
+            </div>
+            <!-- Book: البرمجة بلغة بايثون -->
+            <div class="cert-card fade-in filter-item" data-tags="Python" data-title="البرمجة بلغة بايثون">
+              <div class="cert-image-wrapper book-cover">
+                <span class="status-badge read">Read</span>
+                <img src="https://res.cloudinary.com/dszovn47p/image/upload/v1780911738/programming_by_Python_Lang_rhssat.jpg" alt="البرمجة بلغة بايثون" class="cert-image" loading="lazy" />
+              </div>
+              <div class="cert-content">
+                <div style="display: flex; flex-wrap: wrap; gap: 5px; justify-content: start; margin-bottom: 10px;">
+                  <span class="cert-badge">Python</span>
+                </div>
+                <h3>البرمجة بلغة بايثون</h3>
+                <div class="book-meta">
+                  <span class="book-year"><i class="fas fa-calendar-alt"></i> 2018</span>
+                  <span class="book-rating" title="Rating: 4.0/5"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i></span>
+                </div>
+                <div style="display: flex; gap: 10px; justify-content: start; margin-bottom: 15px;">
+                  <p class="cert-platform">
+                    <i class="fas fa-user"></i> ليزا تاغليفيري
+                  </p>
+                </div>
+                <div class="key-skills">
+                  <strong>Key Takeaways:</strong>
+                  <ul>
+                    <li>Comprehensive guide to Python for Arabic speakers.</li><li>Covers basic to intermediate programming paradigms.</li><li>Focuses on practical code examples and problem-solving.</li>
+                  </ul>
+                </div>
+                <div class="cert-actions">
+                  <a href="https://www.digitalocean.com/community/books/digitalocean-ebook-how-to-code-in-python" target="_blank" rel="noopener noreferrer" class="btn btn-secondary btn-sm verify-btn"><i class="fas fa-external-link-alt"></i> View Book</a>
+                </div>
+              </div>
+            </div>
+            <!-- Book: Fundamentals of Data Engineering -->
+            <div class="cert-card fade-in filter-item" data-tags="Data Engineering, Big Data" data-title="Fundamentals of Data Engineering">
+              <div class="cert-image-wrapper book-cover">
+                <span class="status-badge read">Read</span>
+                <img src="https://res.cloudinary.com/dszovn47p/image/upload/v1780911718/Fundamentals_of_Data_Engineering_naxuqy.jpg" alt="Fundamentals of Data Engineering" class="cert-image" loading="lazy" />
+              </div>
+              <div class="cert-content">
+                <div style="display: flex; flex-wrap: wrap; gap: 5px; justify-content: start; margin-bottom: 10px;">
+                  <span class="cert-badge">Data Engineering</span><span class="cert-badge">Big Data</span>
+                </div>
+                <h3>Fundamentals of Data Engineering</h3>
+                <div class="book-meta">
+                  <span class="book-year"><i class="fas fa-calendar-alt"></i> 2022</span>
+                  <span class="book-rating" title="Rating: 5.0/5"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></span>
+                </div>
+                <div style="display: flex; gap: 10px; justify-content: start; margin-bottom: 15px;">
+                  <p class="cert-platform">
+                    <i class="fas fa-user"></i> Joe Reis & Matt Housley
+                  </p>
+                </div>
+                <div class="key-skills">
+                  <strong>Key Takeaways:</strong>
+                  <ul>
+                    <li>Understand the end-to-end data engineering lifecycle.</li><li>Choose the right tools for scalable ETL/ELT architectures.</li><li>Best practices for data modeling and serving.</li>
+                  </ul>
+                </div>
+                <div class="cert-actions">
+                  <a href="https://www.goodreads.com/book/show/60415301-fundamentals-of-data-engineering" target="_blank" rel="noopener noreferrer" class="btn btn-secondary btn-sm verify-btn"><i class="fas fa-external-link-alt"></i> View Book</a>
+                </div>
+              </div>
+            </div>
+            <!-- Book: Python for Data Analysis -->
+            <div class="cert-card fade-in filter-item" data-tags="Python, Data Engineering" data-title="Python for Data Analysis">
+              <div class="cert-image-wrapper book-cover">
+                <span class="status-badge read">Read</span>
+                <img src="https://res.cloudinary.com/dszovn47p/image/upload/v1780911748/Python-for-Data-Analysis_k82wqt.jpg" alt="Python for Data Analysis" class="cert-image" loading="lazy" />
+              </div>
+              <div class="cert-content">
+                <div style="display: flex; flex-wrap: wrap; gap: 5px; justify-content: start; margin-bottom: 10px;">
+                  <span class="cert-badge">Python</span><span class="cert-badge">Data Engineering</span>
+                </div>
+                <h3>Python for Data Analysis</h3>
+                <div class="book-meta">
+                  <span class="book-year"><i class="fas fa-calendar-alt"></i> 2012</span>
+                  <span class="book-rating" title="Rating: 4.5/5"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i></span>
+                </div>
+                <div style="display: flex; gap: 10px; justify-content: start; margin-bottom: 15px;">
+                  <p class="cert-platform">
+                    <i class="fas fa-user"></i> Wes McKinney
+                  </p>
+                </div>
+                <div class="key-skills">
+                  <strong>Key Takeaways:</strong>
+                  <ul>
+                    <li>Master Pandas for efficient data manipulation and cleaning.</li><li>Learn to handle time series data and perform aggregations.</li><li>Leverage NumPy and Matplotlib for data science workflows.</li>
+                  </ul>
+                </div>
+                <div class="cert-actions">
+                  <a href="https://www.goodreads.com/book/show/14744694-python-for-data-analysis" target="_blank" rel="noopener noreferrer" class="btn btn-secondary btn-sm verify-btn"><i class="fas fa-external-link-alt"></i> View Book</a>
+                </div>
+              </div>
+            </div>
+            <!-- Book: Designing Data-Intensive Applications -->
+            <div class="cert-card fade-in filter-item" data-tags="System Design, Big Data" data-title="Designing Data-Intensive Applications">
+              <div class="cert-image-wrapper book-cover">
+                <span class="status-badge read">Read</span>
+                <img src="https://res.cloudinary.com/dszovn47p/image/upload/v1780911720/Designing-Data-Intensive-Applications_dwts6w.jpg" alt="Designing Data-Intensive Applications" class="cert-image" loading="lazy" />
+              </div>
+              <div class="cert-content">
+                <div style="display: flex; flex-wrap: wrap; gap: 5px; justify-content: start; margin-bottom: 10px;">
+                  <span class="cert-badge">System Design</span><span class="cert-badge">Big Data</span>
+                </div>
+                <h3>Designing Data-Intensive Applications</h3>
+                <div class="book-meta">
+                  <span class="book-year"><i class="fas fa-calendar-alt"></i> 2017</span>
+                  <span class="book-rating" title="Rating: 5.0/5"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></span>
+                </div>
+                <div style="display: flex; gap: 10px; justify-content: start; margin-bottom: 15px;">
+                  <p class="cert-platform">
+                    <i class="fas fa-user"></i> Martin Kleppmann
+                  </p>
+                </div>
+                <div class="key-skills">
+                  <strong>Key Takeaways:</strong>
+                  <ul>
+                    <li>Deep dive into distributed systems, replication, and partitioning.</li><li>Understand scalability and reliability principles in modern architectures.</li><li>Learn the trade-offs between different database and stream processing models.</li>
+                  </ul>
+                </div>
+                <div class="cert-actions">
+                  <a href="https://www.goodreads.com/book/show/23466395-designing-data-intensive-applications" target="_blank" rel="noopener noreferrer" class="btn btn-secondary btn-sm verify-btn"><i class="fas fa-external-link-alt"></i> View Book</a>
+                </div>
+              </div>
+            </div>
+            <!-- Book: Python Data Science Handbook -->
+            <div class="cert-card fade-in filter-item" data-tags="Python, Machine Learning" data-title="Python Data Science Handbook">
+              <div class="cert-image-wrapper book-cover">
+                <span class="status-badge read">Read</span>
+                <img src="https://res.cloudinary.com/dszovn47p/image/upload/v1780911750/Python-Data-Science-Handbook_uxdimu.jpg" alt="Python Data Science Handbook" class="cert-image" loading="lazy" />
+              </div>
+              <div class="cert-content">
+                <div style="display: flex; flex-wrap: wrap; gap: 5px; justify-content: start; margin-bottom: 10px;">
+                  <span class="cert-badge">Python</span><span class="cert-badge">Machine Learning</span>
+                </div>
+                <h3>Python Data Science Handbook</h3>
+                <div class="book-meta">
+                  <span class="book-year"><i class="fas fa-calendar-alt"></i> 2016</span>
+                  <span class="book-rating" title="Rating: 4.5/5"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i></span>
+                </div>
+                <div style="display: flex; gap: 10px; justify-content: start; margin-bottom: 15px;">
+                  <p class="cert-platform">
+                    <i class="fas fa-user"></i> Jake VanderPlas
+                  </p>
+                </div>
+                <div class="key-skills">
+                  <strong>Key Takeaways:</strong>
+                  <ul>
+                    <li>Utilize IPython and Jupyter notebooks for exploratory data analysis.</li><li>Apply Scikit-Learn for practical machine learning applications.</li><li>Perform advanced data visualizations using Matplotlib and Seaborn.</li>
+                  </ul>
+                </div>
+                <div class="cert-actions">
+                  <a href="https://www.goodreads.com/book/show/29566087-python-data-science-handbook" target="_blank" rel="noopener noreferrer" class="btn btn-secondary btn-sm verify-btn"><i class="fas fa-external-link-alt"></i> View Book</a>
+                </div>
+              </div>
+            </div>
+            <!-- Book: Python Data Analytics -->
+            <div class="cert-card fade-in filter-item" data-tags="Python, Data Engineering" data-title="Python Data Analytics">
+              <div class="cert-image-wrapper book-cover">
+                <span class="status-badge read">Read</span>
+                <img src="https://res.cloudinary.com/dszovn47p/image/upload/v1780911748/Python-Data-Analytics-Pandas-matplotlib_actj2t.jpg" alt="Python Data Analytics" class="cert-image" loading="lazy" />
+              </div>
+              <div class="cert-content">
+                <div style="display: flex; flex-wrap: wrap; gap: 5px; justify-content: start; margin-bottom: 10px;">
+                  <span class="cert-badge">Python</span><span class="cert-badge">Data Engineering</span>
+                </div>
+                <h3>Python Data Analytics</h3>
+                <div class="book-meta">
+                  <span class="book-year"><i class="fas fa-calendar-alt"></i> 2015</span>
+                  <span class="book-rating" title="Rating: 4.0/5"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i></span>
+                </div>
+                <div style="display: flex; gap: 10px; justify-content: start; margin-bottom: 15px;">
+                  <p class="cert-platform">
+                    <i class="fas fa-user"></i> Fabio Nelli
+                  </p>
+                </div>
+                <div class="key-skills">
+                  <strong>Key Takeaways:</strong>
+                  <ul>
+                    <li>Extract, process, and analyze diverse datasets effectively.</li><li>Implement statistical methods and forecasting techniques.</li><li>Utilize D3.js and Python visualization libraries for dashboards.</li>
+                  </ul>
+                </div>
+                <div class="cert-actions">
+                  <a href="https://www.goodreads.com/book/show/26891965-python-data-analytics" target="_blank" rel="noopener noreferrer" class="btn btn-secondary btn-sm verify-btn"><i class="fas fa-external-link-alt"></i> View Book</a>
+                </div>
+              </div>
+            </div>
+            <!-- Book: Pro Git -->
+            <div class="cert-card fade-in filter-item" data-tags="Software Engineering" data-title="Pro Git">
+              <div class="cert-image-wrapper book-cover">
+                <span class="status-badge read">Read</span>
+                <img src="https://res.cloudinary.com/dszovn47p/image/upload/v1780911730/pro-git_qp15kf.jpg" alt="Pro Git" class="cert-image" loading="lazy" />
+              </div>
+              <div class="cert-content">
+                <div style="display: flex; flex-wrap: wrap; gap: 5px; justify-content: start; margin-bottom: 10px;">
+                  <span class="cert-badge">Software Engineering</span>
+                </div>
+                <h3>Pro Git</h3>
+                <div class="book-meta">
+                  <span class="book-year"><i class="fas fa-calendar-alt"></i> 2009</span>
+                  <span class="book-rating" title="Rating: 4.5/5"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i></span>
+                </div>
+                <div style="display: flex; gap: 10px; justify-content: start; margin-bottom: 15px;">
+                  <p class="cert-platform">
+                    <i class="fas fa-user"></i> Scott Chacon & Ben Straub
+                  </p>
+                </div>
+                <div class="key-skills">
+                  <strong>Key Takeaways:</strong>
+                  <ul>
+                    <li>Understand the internal mechanics of the Git version control system.</li><li>Learn advanced branching, merging, and rebasing workflows.</li><li>Setup and manage distributed team environments using Git.</li>
+                  </ul>
+                </div>
+                <div class="cert-actions">
+                  <a href="https://www.goodreads.com/book/show/6504620-pro-git" target="_blank" rel="noopener noreferrer" class="btn btn-secondary btn-sm verify-btn"><i class="fas fa-external-link-alt"></i> View Book</a>
+                </div>
+              </div>
+            </div>
+            <!-- Book: Learning Spark -->
+            <div class="cert-card fade-in filter-item" data-tags="Big Data, Data Engineering" data-title="Learning Spark">
+              <div class="cert-image-wrapper book-cover">
+                <span class="status-badge read">Read</span>
+                <img src="https://res.cloudinary.com/dszovn47p/image/upload/v1780911719/learning-spark-lightning-fast-data-analytics_dhsdfk.jpg" alt="Learning Spark" class="cert-image" loading="lazy" />
+              </div>
+              <div class="cert-content">
+                <div style="display: flex; flex-wrap: wrap; gap: 5px; justify-content: start; margin-bottom: 10px;">
+                  <span class="cert-badge">Big Data</span><span class="cert-badge">Data Engineering</span>
+                </div>
+                <h3>Learning Spark</h3>
+                <div class="book-meta">
+                  <span class="book-year"><i class="fas fa-calendar-alt"></i> 2020</span>
+                  <span class="book-rating" title="Rating: 4.5/5"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i></span>
+                </div>
+                <div style="display: flex; gap: 10px; justify-content: start; margin-bottom: 15px;">
+                  <p class="cert-platform">
+                    <i class="fas fa-user"></i> Jules S. Damji, Brooke Wenig, Tathagata Das, Denny Lee
+                  </p>
+                </div>
+                <div class="key-skills">
+                  <strong>Key Takeaways:</strong>
+                  <ul>
+                    <li>Build scalable data pipelines using Apache Spark 3.0.</li><li>Process streaming data with Structured Streaming.</li><li>Optimize Spark performance and troubleshoot execution bottlenecks.</li>
+                  </ul>
+                </div>
+                <div class="cert-actions">
+                  <a href="https://www.goodreads.com/book/show/53244605-learning-spark" target="_blank" rel="noopener noreferrer" class="btn btn-secondary btn-sm verify-btn"><i class="fas fa-external-link-alt"></i> View Book</a>
+                </div>
+              </div>
+            </div>
+            <!-- Book: Spark: The Definitive Guide -->
+            <div class="cert-card fade-in filter-item" data-tags="Big Data, Data Engineering" data-title="Spark: The Definitive Guide">
+              <div class="cert-image-wrapper book-cover">
+                <span class="status-badge read">Read</span>
+                <img src="https://res.cloudinary.com/dszovn47p/image/upload/v1780911757/Spark-The-Definitive-Guide_q80vrz.jpg" alt="Spark: The Definitive Guide" class="cert-image" loading="lazy" />
+              </div>
+              <div class="cert-content">
+                <div style="display: flex; flex-wrap: wrap; gap: 5px; justify-content: start; margin-bottom: 10px;">
+                  <span class="cert-badge">Big Data</span><span class="cert-badge">Data Engineering</span>
+                </div>
+                <h3>Spark: The Definitive Guide</h3>
+                <div class="book-meta">
+                  <span class="book-year"><i class="fas fa-calendar-alt"></i> 2018</span>
+                  <span class="book-rating" title="Rating: 5.0/5"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></span>
+                </div>
+                <div style="display: flex; gap: 10px; justify-content: start; margin-bottom: 15px;">
+                  <p class="cert-platform">
+                    <i class="fas fa-user"></i> Bill Chambers & Matei Zaharia
+                  </p>
+                </div>
+                <div class="key-skills">
+                  <strong>Key Takeaways:</strong>
+                  <ul>
+                    <li>Deep dive into Spark's DataFrame and Dataset APIs.</li><li>Understand the low-level RDD execution model and DAG architecture.</li><li>Learn how to deploy and tune Spark clusters in production.</li>
+                  </ul>
+                </div>
+                <div class="cert-actions">
+                  <a href="https://www.goodreads.com/book/show/33966205-spark" target="_blank" rel="noopener noreferrer" class="btn btn-secondary btn-sm verify-btn"><i class="fas fa-external-link-alt"></i> View Book</a>
+                </div>
+              </div>
+            </div>
+            <!-- Book: Hands-on Guide to Apache Spark 3 -->
+            <div class="cert-card fade-in filter-item" data-tags="Big Data, Data Engineering" data-title="Hands-on Guide to Apache Spark 3">
+              <div class="cert-image-wrapper book-cover">
+                <span class="status-badge planned">Planned</span>
+                <img src="https://res.cloudinary.com/dszovn47p/image/upload/v1780911736/Hands-on-Guide-to-Apache-Spark3_gamrte.jpg" alt="Hands-on Guide to Apache Spark 3" class="cert-image" loading="lazy" />
+              </div>
+              <div class="cert-content">
+                <div style="display: flex; flex-wrap: wrap; gap: 5px; justify-content: start; margin-bottom: 10px;">
+                  <span class="cert-badge">Big Data</span><span class="cert-badge">Data Engineering</span>
+                </div>
+                <h3>Hands-on Guide to Apache Spark 3</h3>
+                <div class="book-meta">
+                  <span class="book-year"><i class="fas fa-calendar-alt"></i> 2021</span>
+                  <span class="book-rating" title="Rating: 4.0/5"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i></span>
+                </div>
+                <div style="display: flex; gap: 10px; justify-content: start; margin-bottom: 15px;">
+                  <p class="cert-platform">
+                    <i class="fas fa-user"></i> Alfonso Antolínez García
+                  </p>
+                </div>
+                <div class="key-skills">
+                  <strong>Key Takeaways:</strong>
+                  <ul>
+                    <li>Implement practical Spark 3 solutions using PySpark.</li><li>Explore the new Adaptive Query Execution (AQE) features.</li><li>Manage distributed data processing workloads efficiently.</li>
+                  </ul>
+                </div>
+                <div class="cert-actions">
+                  <a href="https://www.amazon.com/Hands-Guide-Apache-Spark-Processing/dp/148427909X" target="_blank" rel="noopener noreferrer" class="btn btn-secondary btn-sm verify-btn"><i class="fas fa-external-link-alt"></i> View Book</a>
+                </div>
+              </div>
+            </div>
+            <!-- Book: Learning Apache Spark with Python -->
+            <div class="cert-card fade-in filter-item" data-tags="Big Data, Python" data-title="Learning Apache Spark with Python">
+              <div class="cert-image-wrapper book-cover">
+                <span class="status-badge planned">Planned</span>
+                <img src="https://res.cloudinary.com/dszovn47p/image/upload/v1780911709/Learning-Apache-Spark-with-Python_qglvln.jpg" alt="Learning Apache Spark with Python" class="cert-image" loading="lazy" />
+              </div>
+              <div class="cert-content">
+                <div style="display: flex; flex-wrap: wrap; gap: 5px; justify-content: start; margin-bottom: 10px;">
+                  <span class="cert-badge">Big Data</span><span class="cert-badge">Python</span>
+                </div>
+                <h3>Learning Apache Spark with Python</h3>
+                <div class="book-meta">
+                  <span class="book-year"><i class="fas fa-calendar-alt"></i> 2019</span>
+                  <span class="book-rating" title="Rating: 4.0/5"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i></span>
+                </div>
+                <div style="display: flex; gap: 10px; justify-content: start; margin-bottom: 15px;">
+                  <p class="cert-platform">
+                    <i class="fas fa-user"></i> Wenqiang Feng
+                  </p>
+                </div>
+                <div class="key-skills">
+                  <strong>Key Takeaways:</strong>
+                  <ul>
+                    <li>Master the fundamentals of PySpark and RDDs.</li><li>Build machine learning models using Spark MLlib.</li><li>Perform large-scale SQL queries with Spark SQL.</li>
+                  </ul>
+                </div>
+                <div class="cert-actions">
+                  <a href="https://runawayhorse001.github.io/LearningApacheSpark/" target="_blank" rel="noopener noreferrer" class="btn btn-secondary btn-sm verify-btn"><i class="fas fa-external-link-alt"></i> View Book</a>
+                </div>
+              </div>
+            </div>
+            <!-- Book: Hands-On Machine Learning with Scikit-Learn, Keras, and TensorFlow -->
+            <div class="cert-card fade-in filter-item" data-tags="Machine Learning, Python" data-title="Hands-On Machine Learning with Scikit-Learn, Keras, and TensorFlow">
+              <div class="cert-image-wrapper book-cover">
+                <span class="status-badge read">Read</span>
+                <img src="https://res.cloudinary.com/dszovn47p/image/upload/v1780911732/Hands-On-Machine-Learning-with-Scikit-Learn-Keras-Tens_schdxu.jpg" alt="Hands-On Machine Learning with Scikit-Learn, Keras, and TensorFlow" class="cert-image" loading="lazy" />
+              </div>
+              <div class="cert-content">
+                <div style="display: flex; flex-wrap: wrap; gap: 5px; justify-content: start; margin-bottom: 10px;">
+                  <span class="cert-badge">Machine Learning</span><span class="cert-badge">Python</span>
+                </div>
+                <h3>Hands-On Machine Learning with Scikit-Learn, Keras, and TensorFlow</h3>
+                <div class="book-meta">
+                  <span class="book-year"><i class="fas fa-calendar-alt"></i> 2017</span>
+                  <span class="book-rating" title="Rating: 5.0/5"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></span>
+                </div>
+                <div style="display: flex; gap: 10px; justify-content: start; margin-bottom: 15px;">
+                  <p class="cert-platform">
+                    <i class="fas fa-user"></i> Aurélien Géron
+                  </p>
+                </div>
+                <div class="key-skills">
+                  <strong>Key Takeaways:</strong>
+                  <ul>
+                    <li>Master the foundational concepts of traditional machine learning.</li><li>Build, train, and scale deep neural networks using TensorFlow.</li><li>Implement robust computer vision and natural language processing models.</li>
+                  </ul>
+                </div>
+                <div class="cert-actions">
+                  <a href="https://www.goodreads.com/book/show/33145037-hands-on-machine-learning-with-scikit-learn-and-tensorflow" target="_blank" rel="noopener noreferrer" class="btn btn-secondary btn-sm verify-btn"><i class="fas fa-external-link-alt"></i> View Book</a>
+                </div>
+              </div>
+            </div>
+            <!-- Book: Machine Learning -->
+            <div class="cert-card fade-in filter-item" data-tags="Machine Learning" data-title="Machine Learning">
+              <div class="cert-image-wrapper book-cover">
+                <span class="status-badge read">Read</span>
+                <img src="https://res.cloudinary.com/dszovn47p/image/upload/v1780911738/ml_book_ax90zx.jpg" alt="Machine Learning" class="cert-image" loading="lazy" />
+              </div>
+              <div class="cert-content">
+                <div style="display: flex; flex-wrap: wrap; gap: 5px; justify-content: start; margin-bottom: 10px;">
+                  <span class="cert-badge">Machine Learning</span>
+                </div>
+                <h3>Machine Learning</h3>
+                <div class="book-meta">
+                  <span class="book-year"><i class="fas fa-calendar-alt"></i> 2020</span>
+                  <span class="book-rating" title="Rating: 4.0/5"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i></span>
+                </div>
+                <div style="display: flex; gap: 10px; justify-content: start; margin-bottom: 15px;">
+                  <p class="cert-platform">
+                    <i class="fas fa-user"></i> Hamdi Mahmoud
+                  </p>
+                </div>
+                <div class="key-skills">
+                  <strong>Key Takeaways:</strong>
+                  <ul>
+                    <li>Learn the mathematics underlying core machine learning algorithms.</li><li>Differentiate between supervised and unsupervised learning techniques.</li><li>Apply fundamental algorithms to real-world datasets.</li>
+                  </ul>
+                </div>
+                <div class="cert-actions">
+                  <a href="https://www.goodreads.com/book/show/55519808-machine-learning" target="_blank" rel="noopener noreferrer" class="btn btn-secondary btn-sm verify-btn"><i class="fas fa-external-link-alt"></i> View Book</a>
+                </div>
+              </div>
+            </div>
+            <!-- Book: The Data Warehouse Toolkit -->
+            <div class="cert-card fade-in filter-item" data-tags="Data Engineering, System Design" data-title="The Data Warehouse Toolkit">
+              <div class="cert-image-wrapper book-cover">
+                <span class="status-badge reading">Currently Reading</span>
+                <img src="https://res.cloudinary.com/dszovn47p/image/upload/v1780911758/The_Data_Warehouse_Toolkit_mychdw.jpg" alt="The Data Warehouse Toolkit" class="cert-image" loading="lazy" />
+              </div>
+              <div class="cert-content">
+                <div style="display: flex; flex-wrap: wrap; gap: 5px; justify-content: start; margin-bottom: 10px;">
+                  <span class="cert-badge">Data Engineering</span><span class="cert-badge">System Design</span>
+                </div>
+                <h3>The Data Warehouse Toolkit</h3>
+                <div class="book-meta">
+                  <span class="book-year"><i class="fas fa-calendar-alt"></i> 2013</span>
+                  <span class="book-rating" title="Rating: 5.0/5"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></span>
+                </div>
+                <div style="display: flex; gap: 10px; justify-content: start; margin-bottom: 15px;">
+                  <p class="cert-platform">
+                    <i class="fas fa-user"></i> Ralph Kimball & Margy Ross
+                  </p>
+                </div>
+                <div class="key-skills">
+                  <strong>Key Takeaways:</strong>
+                  <ul>
+                    <li>Master dimensional modeling and the star schema architecture.</li><li>Implement Slowly Changing Dimensions (SCDs) for historical data tracking.</li><li>Design enterprise data warehouses for robust business intelligence.</li>
+                  </ul>
+                </div>
+                <div class="cert-actions">
+                  <a href="https://www.goodreads.com/book/show/104279.The_Data_Warehouse_Toolkit" target="_blank" rel="noopener noreferrer" class="btn btn-secondary btn-sm verify-btn"><i class="fas fa-external-link-alt"></i> View Book</a>
+                </div>
+              </div>
+            </div>
+            <!-- Book: Delta Lake: The Definitive Guide -->
+            <div class="cert-card fade-in filter-item" data-tags="Big Data, Data Engineering" data-title="Delta Lake: The Definitive Guide">
+              <div class="cert-image-wrapper book-cover">
+                <span class="status-badge planned">Planned</span>
+                <img src="https://res.cloudinary.com/dszovn47p/image/upload/v1780911711/Delta_Lake_-_The_Definitive_Guide_l3q8tf.jpg" alt="Delta Lake: The Definitive Guide" class="cert-image" loading="lazy" />
+              </div>
+              <div class="cert-content">
+                <div style="display: flex; flex-wrap: wrap; gap: 5px; justify-content: start; margin-bottom: 10px;">
+                  <span class="cert-badge">Big Data</span><span class="cert-badge">Data Engineering</span>
+                </div>
+                <h3>Delta Lake: The Definitive Guide</h3>
+                <div class="book-meta">
+                  <span class="book-year"><i class="fas fa-calendar-alt"></i> 2023</span>
+                  <span class="book-rating" title="Rating: 4.5/5"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i></span>
+                </div>
+                <div style="display: flex; gap: 10px; justify-content: start; margin-bottom: 15px;">
+                  <p class="cert-platform">
+                    <i class="fas fa-user"></i> Denny Lee, Tristen Wentling, Scott Haines, Prashanth Babu
+                  </p>
+                </div>
+                <div class="key-skills">
+                  <strong>Key Takeaways:</strong>
+                  <ul>
+                    <li>Build reliable data lakehouse architectures using Delta Lake.</li><li>Enable ACID transactions and time travel on Apache Spark workloads.</li><li>Architect scalable, real-time data pipelines leveraging Delta architecture.</li>
+                  </ul>
+                </div>
+                <div class="cert-actions">
+                  <a href="https://www.goodreads.com/book/show/60459528-delta-lake" target="_blank" rel="noopener noreferrer" class="btn btn-secondary btn-sm verify-btn"><i class="fas fa-external-link-alt"></i> View Book</a>
+                </div>
+              </div>
+            </div>
+            <!-- Book: Data Pipelines Pocket Reference -->
+            <div class="cert-card fade-in filter-item" data-tags="Data Engineering" data-title="Data Pipelines Pocket Reference">
+              <div class="cert-image-wrapper book-cover">
+                <span class="status-badge read">Read</span>
+                <img src="https://res.cloudinary.com/dszovn47p/image/upload/v1780911708/Data_Pipelines_Pocket_Reference_yeyymq.jpg" alt="Data Pipelines Pocket Reference" class="cert-image" loading="lazy" />
+              </div>
+              <div class="cert-content">
+                <div style="display: flex; flex-wrap: wrap; gap: 5px; justify-content: start; margin-bottom: 10px;">
+                  <span class="cert-badge">Data Engineering</span>
+                </div>
+                <h3>Data Pipelines Pocket Reference</h3>
+                <div class="book-meta">
+                  <span class="book-year"><i class="fas fa-calendar-alt"></i> 2021</span>
+                  <span class="book-rating" title="Rating: 4.5/5"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i></span>
+                </div>
+                <div style="display: flex; gap: 10px; justify-content: start; margin-bottom: 15px;">
+                  <p class="cert-platform">
+                    <i class="fas fa-user"></i> James Densmore
+                  </p>
+                </div>
+                <div class="key-skills">
+                  <strong>Key Takeaways:</strong>
+                  <ul>
+                    <li>Understand core principles of reliable ELT and ETL pipeline design.</li><li>Evaluate and select appropriate modern data stack tools.</li><li>Implement essential data validation and testing strategies.</li>
+                  </ul>
+                </div>
+                <div class="cert-actions">
+                  <a href="https://www.goodreads.com/book/show/56233519-data-pipelines-pocket-reference" target="_blank" rel="noopener noreferrer" class="btn btn-secondary btn-sm verify-btn"><i class="fas fa-external-link-alt"></i> View Book</a>
+                </div>
+              </div>
+            </div>
+            <!-- Book: Rich Dad Poor Dad -->
+            <div class="cert-card fade-in filter-item" data-tags="Soft Skills" data-title="Rich Dad Poor Dad">
+              <div class="cert-image-wrapper book-cover">
+                <span class="status-badge read">Read</span>
+                <img src="https://res.cloudinary.com/dszovn47p/image/upload/v1780911754/Rich_Dad_Poor_Dad_e3l8l0.jpg" alt="Rich Dad Poor Dad" class="cert-image" loading="lazy" />
+              </div>
+              <div class="cert-content">
+                <div style="display: flex; flex-wrap: wrap; gap: 5px; justify-content: start; margin-bottom: 10px;">
+                  <span class="cert-badge">Soft Skills</span>
+                </div>
+                <h3>Rich Dad Poor Dad</h3>
+                <div class="book-meta">
+                  <span class="book-year"><i class="fas fa-calendar-alt"></i> 1997</span>
+                  <span class="book-rating" title="Rating: 4.5/5"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i></span>
+                </div>
+                <div style="display: flex; gap: 10px; justify-content: start; margin-bottom: 15px;">
+                  <p class="cert-platform">
+                    <i class="fas fa-user"></i> روبرت تي كيوساكي
+                  </p>
+                </div>
+                <div class="key-skills">
+                  <strong>Key Takeaways:</strong>
+                  <ul>
+                    <li>Learn the fundamental difference between assets and liabilities.</li><li>Understand that financial literacy is the key to wealth building.</li><li>Shift focus from working for money to having money work for you.</li>
+                  </ul>
+                </div>
+                <div class="cert-actions">
+                  <a href="https://www.goodreads.com/book/show/69571.Rich_Dad_Poor_Dad" target="_blank" rel="noopener noreferrer" class="btn btn-secondary btn-sm verify-btn"><i class="fas fa-external-link-alt"></i> View Book</a>
+                </div>
+              </div>
+            </div>
+            <!-- Book: Python for Absolute beginners -->
+            <div class="cert-card fade-in filter-item" data-tags="Python" data-title="Python for Absolute beginners">
+              <div class="cert-image-wrapper book-cover">
+                <span class="status-badge read">Read</span>
+                <img src="https://res.cloudinary.com/dszovn47p/image/upload/v1780911737/Python_for_Absolute_beginners_ojlxhl.jpg" alt="Python for Absolute beginners" class="cert-image" loading="lazy" />
+              </div>
+              <div class="cert-content">
+                <div style="display: flex; flex-wrap: wrap; gap: 5px; justify-content: start; margin-bottom: 10px;">
+                  <span class="cert-badge">Python</span>
+                </div>
+                <h3>Python for Absolute beginners</h3>
+                <div class="book-meta">
+                  <span class="book-year"><i class="fas fa-calendar-alt"></i> 2022</span>
+                  <span class="book-rating" title="Rating: 4.0/5"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i></span>
+                </div>
+                <div style="display: flex; gap: 10px; justify-content: start; margin-bottom: 15px;">
+                  <p class="cert-platform">
+                    <i class="fas fa-user"></i> Oswald Campesato
+                  </p>
+                </div>
+                <div class="key-skills">
+                  <strong>Key Takeaways:</strong>
+                  <ul>
+                    <li>Grasp the basics of programming concepts without prior experience.</li><li>Execute simple scripts and understand Python's core data types.</li><li>Build confidence to progress to intermediate programming topics.</li>
+                  </ul>
+                </div>
+                <div class="cert-actions">
+                  <a href="https://www.goodreads.com/book/show/61153160-python-for-absolute-beginners" target="_blank" rel="noopener noreferrer" class="btn btn-secondary btn-sm verify-btn"><i class="fas fa-external-link-alt"></i> View Book</a>
+                </div>
+              </div>
+            </div>
+            <!-- Book: Foundations Of Computer Vision -->
+            <div class="cert-card fade-in filter-item" data-tags="Machine Learning" data-title="Foundations Of Computer Vision">
+              <div class="cert-image-wrapper book-cover">
+                <span class="status-badge read">Read</span>
+                <img src="https://res.cloudinary.com/dszovn47p/image/upload/v1780911736/FoundationsOfComputerVision_xpfpdv.jpg" alt="Foundations Of Computer Vision" class="cert-image" loading="lazy" />
+              </div>
+              <div class="cert-content">
+                <div style="display: flex; flex-wrap: wrap; gap: 5px; justify-content: start; margin-bottom: 10px;">
+                  <span class="cert-badge">Machine Learning</span>
+                </div>
+                <h3>Foundations Of Computer Vision</h3>
+                <div class="book-meta">
+                  <span class="book-year"><i class="fas fa-calendar-alt"></i> 2017</span>
+                  <span class="book-rating" title="Rating: 4.0/5"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i></span>
+                </div>
+                <div style="display: flex; gap: 10px; justify-content: start; margin-bottom: 15px;">
+                  <p class="cert-platform">
+                    <i class="fas fa-user"></i> James F. Peters
+                  </p>
+                </div>
+                <div class="key-skills">
+                  <strong>Key Takeaways:</strong>
+                  <ul>
+                    <li>Explore image processing techniques and geometric computer vision.</li><li>Understand feature extraction and object recognition methods.</li><li>Learn the mathematical foundations behind visual data interpretation.</li>
+                  </ul>
+                </div>
+                <div class="cert-actions">
+                  <a href="https://www.goodreads.com/book/show/34324311-foundations-of-computer-vision" target="_blank" rel="noopener noreferrer" class="btn btn-secondary btn-sm verify-btn"><i class="fas fa-external-link-alt"></i> View Book</a>
+                </div>
+              </div>
+            </div>
+            <!-- Book: Computer Graphics -->
+            <div class="cert-card fade-in filter-item" data-tags="Software Engineering" data-title="Computer Graphics">
+              <div class="cert-image-wrapper book-cover">
+                <span class="status-badge read">Read</span>
+                <img src="https://res.cloudinary.com/dszovn47p/image/upload/v1780911707/Computer_Graphics_kxhxqs.jpg" alt="Computer Graphics" class="cert-image" loading="lazy" />
+              </div>
+              <div class="cert-content">
+                <div style="display: flex; flex-wrap: wrap; gap: 5px; justify-content: start; margin-bottom: 10px;">
+                  <span class="cert-badge">Software Engineering</span>
+                </div>
+                <h3>Computer Graphics</h3>
+                <div class="book-meta">
+                  <span class="book-year"><i class="fas fa-calendar-alt"></i> 2018</span>
+                  <span class="book-rating" title="Rating: 4.0/5"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i></span>
+                </div>
+                <div style="display: flex; gap: 10px; justify-content: start; margin-bottom: 15px;">
+                  <p class="cert-platform">
+                    <i class="fas fa-user"></i> Mohammed Salah Reda
+                  </p>
+                </div>
+                <div class="key-skills">
+                  <strong>Key Takeaways:</strong>
+                  <ul>
+                    <li>Understand 2D and 3D rendering pipelines and transformations.</li><li>Learn lighting, shading, and texture mapping algorithms.</li><li>Master fundamental mathematical concepts for computer graphics.</li>
+                  </ul>
+                </div>
+                <div class="cert-actions">
+                  <a href="https://www.goodreads.com/book/show/365287.Computer_Graphics" target="_blank" rel="noopener noreferrer" class="btn btn-secondary btn-sm verify-btn"><i class="fas fa-external-link-alt"></i> View Book</a>
+                </div>
+              </div>
+            </div>
+            <!-- Book: Introduction to the Design and Analysis of Algorithms -->
+            <div class="cert-card fade-in filter-item" data-tags="Software Engineering" data-title="Introduction to the Design and Analysis of Algorithms">
+              <div class="cert-image-wrapper book-cover">
+                <span class="status-badge planned">Planned</span>
+                <img src="https://res.cloudinary.com/dszovn47p/image/upload/v1780911718/Introduction_to_the_Design_and_Analysis_of_Algorithms_tutuj4.jpg" alt="Introduction to the Design and Analysis of Algorithms" class="cert-image" loading="lazy" />
+              </div>
+              <div class="cert-content">
+                <div style="display: flex; flex-wrap: wrap; gap: 5px; justify-content: start; margin-bottom: 10px;">
+                  <span class="cert-badge">Software Engineering</span>
+                </div>
+                <h3>Introduction to the Design and Analysis of Algorithms</h3>
+                <div class="book-meta">
+                  <span class="book-year"><i class="fas fa-calendar-alt"></i> 2002</span>
+                  <span class="book-rating" title="Rating: 4.5/5"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i></span>
+                </div>
+                <div style="display: flex; gap: 10px; justify-content: start; margin-bottom: 15px;">
+                  <p class="cert-platform">
+                    <i class="fas fa-user"></i> Anany Levitin
+                  </p>
+                </div>
+                <div class="key-skills">
+                  <strong>Key Takeaways:</strong>
+                  <ul>
+                    <li>Master algorithm design techniques like divide-and-conquer and dynamic programming.</li><li>Analyze time and space complexity using Big O notation.</li><li>Solve computational problems efficiently with appropriate algorithms.</li>
+                  </ul>
+                </div>
+                <div class="cert-actions">
+                  <a href="https://www.goodreads.com/book/show/241604.Introduction_to_the_Design_and_Analysis_of_Algorithms" target="_blank" rel="noopener noreferrer" class="btn btn-secondary btn-sm verify-btn"><i class="fas fa-external-link-alt"></i> View Book</a>
+                </div>
+              </div>
+            </div>
+            <!-- Book: Introduction to Algorithms -->
+            <div class="cert-card fade-in filter-item" data-tags="Software Engineering" data-title="Introduction to Algorithms">
+              <div class="cert-image-wrapper book-cover">
+                <span class="status-badge planned">Planned</span>
+                <img src="https://res.cloudinary.com/dszovn47p/image/upload/v1780911707/Introduction_to_Algorithms_fpndts.jpg" alt="Introduction to Algorithms" class="cert-image" loading="lazy" />
+              </div>
+              <div class="cert-content">
+                <div style="display: flex; flex-wrap: wrap; gap: 5px; justify-content: start; margin-bottom: 10px;">
+                  <span class="cert-badge">Software Engineering</span>
+                </div>
+                <h3>Introduction to Algorithms</h3>
+                <div class="book-meta">
+                  <span class="book-year"><i class="fas fa-calendar-alt"></i> 1990</span>
+                  <span class="book-rating" title="Rating: 5.0/5"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></span>
+                </div>
+                <div style="display: flex; gap: 10px; justify-content: start; margin-bottom: 15px;">
+                  <p class="cert-platform">
+                    <i class="fas fa-user"></i> Thomas H. Cormen, Charles E. Leiserson, Ronald L. Rivest, Clifford Stein
+                  </p>
+                </div>
+                <div class="key-skills">
+                  <strong>Key Takeaways:</strong>
+                  <ul>
+                    <li>Comprehensive reference for graph algorithms, sorting, and data structures.</li><li>Deep dive into advanced algorithmic paradigms and their proofs.</li><li>Understand the theoretical foundations of computer science computation.</li>
+                  </ul>
+                </div>
+                <div class="cert-actions">
+                  <a href="https://www.goodreads.com/book/show/108986.Introduction_to_Algorithms" target="_blank" rel="noopener noreferrer" class="btn btn-secondary btn-sm verify-btn"><i class="fas fa-external-link-alt"></i> View Book</a>
+                </div>
+              </div>
+            </div>
+            <!-- Book: Understanding ETL -->
+            <div class="cert-card fade-in filter-item" data-tags="Data Engineering" data-title="Understanding ETL">
+              <div class="cert-image-wrapper book-cover">
+                <span class="status-badge read">Read</span>
+                <img src="https://res.cloudinary.com/dszovn47p/image/upload/v1780911757/Understanding_ETL_uwxspq.jpg" alt="Understanding ETL" class="cert-image" loading="lazy" />
+              </div>
+              <div class="cert-content">
+                <div style="display: flex; flex-wrap: wrap; gap: 5px; justify-content: start; margin-bottom: 10px;">
+                  <span class="cert-badge">Data Engineering</span>
+                </div>
+                <h3>Understanding ETL</h3>
+                <div class="book-meta">
+                  <span class="book-year"><i class="fas fa-calendar-alt"></i> 2019</span>
+                  <span class="book-rating" title="Rating: 4.0/5"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i></span>
+                </div>
+                <div style="display: flex; gap: 10px; justify-content: start; margin-bottom: 15px;">
+                  <p class="cert-platform">
+                    <i class="fas fa-user"></i> Matt Palmer
+                  </p>
+                </div>
+                <div class="key-skills">
+                  <strong>Key Takeaways:</strong>
+                  <ul>
+                    <li>Learn the core principles of Extract, Transform, Load processes.</li><li>Identify common pitfalls in data integration workflows.</li><li>Architect pipelines that ensure data quality and reliability.</li>
+                  </ul>
+                </div>
+                <div class="cert-actions">
+                  <a href="https://www.goodreads.com/book/show/44330142-understanding-etl" target="_blank" rel="noopener noreferrer" class="btn btn-secondary btn-sm verify-btn"><i class="fas fa-external-link-alt"></i> View Book</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="container">
+        <a href="#" class="scroll-top" aria-label="Scroll to top"><i class="fas fa-chevron-up"></i></a>
+        <p>
+          &copy; <span id="year"></span> Abdullah EL-Yamany. All rights reserved.
+        </p>
+      </div>
+    </footer>
+
+    <script src="../js/script.js"></script>
+    
+    <script>
+      // Search and Filter Logic
+      document.addEventListener('DOMContentLoaded', () => {
+        const searchInput = document.getElementById('searchInput')
+        const filterBtns = document.querySelectorAll('.filter-btn')
+        const items = document.querySelectorAll('.filter-item')
+      
+        let currentFilter = 'all'
+        let searchQuery = ''
+      
+        const filterItems = () => {
+          items.forEach((item) => {
+            const title = item.getAttribute('data-title').toLowerCase()
+            const tags = item.getAttribute('data-tags').toLowerCase()
+            const author = item.querySelector('.cert-platform').textContent.toLowerCase()
+      
+            const matchesSearch = title.includes(searchQuery) || tags.includes(searchQuery) || author.includes(searchQuery)
+            const matchesFilter = currentFilter === 'all' || tags.includes(currentFilter.toLowerCase())
+      
+            if (matchesSearch && matchesFilter) {
+              item.classList.remove('item-hidden')
+            } else {
+              item.classList.add('item-hidden')
+            }
+          })
+        }
+      
+        searchInput.addEventListener('input', (e) => {
+          searchQuery = e.target.value.toLowerCase()
+          filterItems()
+        })
+      
+        filterBtns.forEach((btn) => {
+          btn.addEventListener('click', (e) => {
+            filterBtns.forEach((b) => b.classList.remove('active'))
+            e.target.classList.add('active')
+            currentFilter = e.target.getAttribute('data-filter')
+            filterItems()
+          })
+        })
+      })
+    </script>
+
+  </body>
+</html>

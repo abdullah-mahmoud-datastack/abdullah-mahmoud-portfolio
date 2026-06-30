@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Abdullah Mah. | Data Engineer</title>
+    <meta name="description"
+        content="Portfolio of Abdullah Mahmoud Abdullah, a Data Engineer building ETL/ELT pipelines.">
+    <link rel="icon" href="https://res.cloudinary.com/dszovn47p/image/upload/q_auto/f_auto/v1778228008/logo_cz9kta.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="#hero" class="logo">AM.<span>Data</span></a>
+            <ul class="nav-links">
+                <li><a href="#about">About</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#experience">Experience</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#contact">Contact</a></li>
+                <li><a href="templates/projects.html">Projects</a></li>
+                <li><a href="templates/certificates.html">Certificates</a></li>
+                <li><a href="templates/courses.html">Courses</a></li>
+                <li><a href="templates/books.html">Books</a></li>
+            </ul>
+            <button id="theme-toggle" class="theme-toggle" aria-label="Toggle dark/light mode">
+                <i class="fas fa-sun"></i>
+            </button>
+            <div class="hamburger">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+    </nav>
+
+    <main>
+        <!-- Hero Section -->
+        <section id="hero" class="hero">
+            <div class="hero-content">
+                <p class="greeting fade-in">Hello, I am</p>
+                <h1 class="name fade-in">Abdullah Mahmoud Abdullah</h1>
+                <h2 class="title fade-in">Data Engineer | Build ETL/ELT Pipelines</h2>
+                <p class="summary fade-in">I engineer scalable, cloud-native data pipelines that transform raw data into
+                    high-value assets. Specializing in AWS, Snowflake, and Apache Spark, I build the distributed
+                    architectures that power modern analytics.</p>
+                <div class="cta-buttons fade-in">
+                    <a href="templates/projects.html" class="btn btn-primary">View Projects</a>
+                    <a href="https://drive.google.com/file/d/1g0Cm11QaCgsSMxm5A28iistT2LRfHFEg/view?usp=drive_link"
+                        target="_blank" class="btn btn-secondary"><i class="fas fa-file-pdf"
+                            style="margin-right: 5px;"></i> Resume</a>
+                    <a href="#contact" class="btn btn-secondary">Contact Me</a>
+                </div>
+            </div>
+            <div class="hero-image fade-in">
+                <div class="image-frame">
+                    <img src="https://res.cloudinary.com/dszovn47p/image/upload/q_auto/f_auto/v1778228023/image_yth6au.jpg"
+                        alt="Abdullah Mahmoud Abdullah" class="profile-img">
+                </div>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section id="about" class="about section-padding">
+            <div class="container">
+                <h2 class="section-title fade-in">About Me</h2>
+                <div class="about-content fade-in">
+                    <p>As a final-year Computer Science student (2022–2026) with over a year of hands-on Data
+                        Engineering experience, I thrive at the intersection of data and cloud architecture. My
+                        expertise lies in designing event-driven AWS architectures and integrating scalable Snowflake
+                        data warehousing solutions.</p>
+                    <p>I am deeply passionate about distributed systems and building cloud data platforms that are
+                        robust, automated, and production-ready. I aim to continuously push the boundaries of what
+                        scalable data infrastructure can achieve.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Skills Section -->
+        <section id="skills" class="skills section-padding">
+            <div class="container">
+                <h2 class="section-title fade-in">Technical Skills</h2>
+                <div class="skills-grid">
+                    <div class="skill-category fade-in">
+                        <i class="fas fa-code"></i>
+                        <h3>Languages</h3>
+                        <div class="tags">
+                            <span>Python</span>
+                            <span>SQL</span>
+                            <span>Bash/Shell Scripting</span>
+                        </div>
+                    </div>
+                    <div class="skill-category fade-in">
+                        <i class="fas fa-database"></i>
+                        <h3>Big Data & Processing</h3>
+                        <div class="tags">
+                            <span>Apache Spark</span>
+                            <span>Pandas</span>
+                            <span>Apache Kafka</span>
+                            <span>Apache Airflow</span>
+                            <!-- <span>Multi-Format Data Handling (JSON, CSV, TSV, Parquet)</span> -->
+                        </div>
+                    </div>
+                    <div class="skill-category fade-in">
+                        <i class="fas fa-cloud"></i>
+                        <h3>Cloud & Platforms</h3>
+                        <div class="tags">
+                            <span>AWS</span>
+                            <span>S3</span>
+                            <span>Lambda</span>
+                            <span>Glue</span>
+                            <span>EC2</span>
+                            <span>Athena</span>
+                            <span>EMR</span>
+                            <span>EventBridge</span>
+                            <span>SQS/SNS</span>
+                            <span>Snowflake</span>
+                        </div>
+                    </div>
+                    <div class="skill-category fade-in">
+                        <i class="fas fa-server"></i>
+                        <h3>Databases</h3>
+                        <div class="tags">
+                            <span>PostgreSQL</span>
+                            <span>MySQL</span>
+                            <span>SQL Server</span>
+                        </div>
+                    </div>
+                    <div class="skill-category fade-in">
+                        <i class="fas fa-tools"></i>
+                        <h3>DevOps & Engineering</h3>
+                        <div class="tags">
+                            <span>Docker</span>
+                            <span>GitHub Actions</span>
+                            <span>Linux</span>
+                        </div>
+                    </div>
+                    <div class="skill-category fade-in">
+                        <i class="fas fa-chart-line"></i>
+                        <h3>AI & ML</h3>
+                        <div class="tags">
+                            <span>Generative AI</span>
+                        </div>
+                    </div>
+                    <div class="skill-category fade-in">
+                        <i class="fas fa-chart-line"></i>
+                        <h3>Data Analytics & Visualization</h3>
+                        <div class="tags">
+                            <span>Looker Studio</span>
+                            <span>Tableau</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Projects Section CTA -->
+        <section id="projects-cta" class="projects section-padding" style="background-color: var(--bg-color-alt);">
+            <div class="container text-center" style="text-align: center;">
+                <h2 class="section-title fade-in" style="margin-bottom: 2rem;">Featured Projects</h2>
+                <p class="fade-in"
+                    style="margin-bottom: 2.5rem; font-size: 1.1rem; max-width: 600px; margin-left: auto; margin-right: auto;">
+                    Explore the data engineering pipelines, scalable cloud platforms, and data architectures I have
+                    built.</p>
+                <a href="templates/projects.html" class="btn btn-primary fade-in">View All Projects</a>
+            </div>
+        </section>
+
+        <!-- Experience Section -->
+        <section id="experience" class="experience section-padding">
+            <div class="container">
+                <h2 class="section-title fade-in">Professional Experience</h2>
+                <div class="timeline">
+                    <div class="timeline-item fade-in">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-content">
+                            <h3>Data Engineer <span class="type">(Freelance & Academic)</span></h3>
+                            <span class="date">2024</span>
+                            <ul>
+                                <li>Designed and deployed robust AWS-based ELT pipelines.</li>
+                                <li>Integrated cutting-edge Snowflake data warehouse solutions.</li>
+                                <li>Built distributed Apache Spark processing workflows.</li>
+                                <li>Automated CI/CD deployments for seamless integration.</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="timeline-item fade-in">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-content">
+                            <h3>AI Engineer <span class="company">| Optimise-Ops</span></h3>
+                            <span class="date">Oct 2025 – Present</span>
+                            <ul>
+                                <li>Architected an AI-driven reporting automation platform.</li>
+                                <li>Eliminated manual report processing for field technicians.</li>
+                                <li>Integrated comprehensive backend services and structured analytics logic.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Services Section -->
+        <section id="services" class="services section-padding">
+            <div class="container">
+                <h2 class="section-title fade-in">Services & Offerings</h2>
+                <div class="services-grid">
+                    <div class="service-card fade-in">
+                        <i class="fas fa-project-diagram"></i>
+                        <h4>Cloud Data Pipeline Architecture</h4>
+                    </div>
+                    <div class="service-card fade-in">
+                        <i class="fas fa-bolt"></i>
+                        <h4>Serverless ETL/ELT Development</h4>
+                    </div>
+                    <div class="service-card fade-in">
+                        <i class="fas fa-snowflake"></i>
+                        <h4>Snowflake Data Warehouse Implementation</h4>
+                    </div>
+                    <div class="service-card fade-in">
+                        <i class="fas fa-layer-group"></i>
+                        <h4>Big Data Processing with Spark</h4>
+                    </div>
+                    <div class="service-card fade-in">
+                        <i class="fas fa-comments"></i>
+                        <h4>Technical Data Engineering Consulting</h4>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Career Objective -->
+        <section id="objective" class="objective section-padding">
+            <div class="container">
+                <div class="objective-card fade-in">
+                    <i class="fas fa-rocket objective-icon"></i>
+                    <h2 class="section-title" style="margin-bottom: 1.5rem;">Career Objective</h2>
+                    <p>My objective is to architect and deploy large-scale distributed data systems that solve complex
+                        analytical challenges. Focused on real-time streaming and big data architectures, I am committed
+                        to building reliable, scalable, production-grade data platforms that drive critical business
+                        intelligence.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="contact section-padding">
+            <div class="container">
+                <h2 class="section-title fade-in">Get In Touch</h2>
+                <div class="contact-container fade-in">
+                    <div class="contact-info">
+                        <h3>Connect with me</h3>
+                        <p>I'm always open to discussing data engineering, cloud architectures, and innovative tech
+                            opportunities.</p>
+                        <div class="social-links">
+                            <a href="https://www.linkedin.com/in/abdullah-mahmoud-de1344/" target="_blank"
+                                aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                            <a href="https://github.com/abdullah-mahmoud-de" target="_blank" aria-label="GitHub"><i
+                                    class="fab fa-github"></i></a>
+                            <a href="http://wa.me/+201155765080" target="_blank" aria-label="WhatsApp"><i
+                                    class="fab fa-whatsapp"></i></a>
+                            <a href="https://t.me/elyamany4" target="_blank" aria-label="Telegram"><i
+                                    class="fab fa-telegram-plane"></i></a>
+                            <a href="mailto:abdullah.mahmoud.abdullah1344@gmail.com" aria-label="Email"><i
+                                    class="fas fa-envelope"></i></a>
+                        </div>
+                    </div>
+                    <form name="contact" method="POST" data-netlify="true" class="contact-form">
+                        <!-- Required hidden input for Netlify -->
+                        <input type="hidden" name="form-name" value="contact" />
+
+                        <div class="form-group">
+                            <label for="name">Name</label>
+                            <input type="text" id="name" name="name" required placeholder="Abdullah Mah" />
+                        </div>
+
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" name="email" required placeholder="abdo@example.com" />
+                        </div>
+
+                        <div class="form-group">
+                            <label for="message">Message</label>
+                            <textarea id="message" name="message" rows="5" required
+                                placeholder="Your message here..."></textarea>
+                        </div>
+
+                        <button type="submit" class="btn btn-primary btn-block">
+                            Send Message
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <a href="#hero" class="scroll-top" aria-label="Scroll to top"><i class="fas fa-chevron-up"></i></a>
+            <p>&copy; <span id="year"></span> Abdullah EL-Yamany. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="js/script.js"></script>
+</body>
+
+</html>
